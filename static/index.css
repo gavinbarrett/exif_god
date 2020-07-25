@@ -1,0 +1,67 @@
+html {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+}
+
+#fileUploader {
+	display: flex;
+	justify-content: center;
+	align-center: center;
+	background: red;
+	width: 50vw;
+	height: 100vh;
+}
+
+#upload {
+	height: 5vh;
+}
+
+#dropzone {
+	background: teal;
+}
+
+#dropper {
+	background: orange;
+	display: flex;
+	width: 80vw;
+	height: 60vh;
+	justify-content: center;
+	align-items: center;
+}
+
+#exifViewer {
+	display: flex;
+	justify-content: center;
+	align-center: center;
+	background: purple;
+	width: 50vw;
+	height: 100vh;
+}
+
+#page {
+	display: flex;
+	width: 100vw;
+	height: 90vh;
+	background: blue;
+}
+
+#heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 4vw;
+	font-family: Inconsolata;
+	color: white;
+	width: 100vw;
+	height: 10vh;
+	background: green;
+}

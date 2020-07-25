@@ -1,0 +1,32 @@
+html {
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+#fileUploader {
+	display: flex;
+	justify-content: center;
+	align-center: center;
+	background: red;
+}
+
+#page {
+	display: flex;
+	width: 100vw;
+	height: 80vh;
+	background: blue;
+}
+
+#heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100vw;
+	height: 20vh;
+	background: green;
+}
