@@ -13,8 +13,9 @@ body {
 
 #fileUploader {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	align-center: center;
+	align-items: center;
 	background: red;
 	width: 50vw;
 	height: 100vh;
@@ -25,25 +26,37 @@ body {
 }
 
 #dropzone {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: teal;
 }
 
 #dropper {
 	background: orange;
 	display: flex;
-	width: 80vw;
-	height: 60vh;
+	width: 45vw;
+	height: 70vh;
 	justify-content: center;
 	align-items: center;
+	border-radius: 7px;
 }
 
 #exifViewer {
 	display: flex;
 	justify-content: center;
-	align-center: center;
+	align-items: center;
 	background: purple;
 	width: 50vw;
 	height: 100vh;
+	color: white;
+	padding: 20px;
+	overflow: scroll;
+}
+
+#entry {
+	display: flex;
+	justify-content: flex-start;
 }
 
 #page {
