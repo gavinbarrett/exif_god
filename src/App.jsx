@@ -7,7 +7,7 @@ function App() {
 	const [jsonData, updateJsonData] = useState(null);
 	return (<div id='app'>
 		<div id='heading'>
-			{'exif_god'}
+			{'Exif God'}
 		</div>
 		<div id='page'>
 			<FileUploader updateJsonData={updateJsonData}/>
