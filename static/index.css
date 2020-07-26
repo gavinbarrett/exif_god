@@ -1,6 +1,7 @@
 html {
 	width: 100vw;
 	height: 100vh;
+	font-family: 'Source Code Pro', monospace;
 	overflow: hidden;
 }
 
@@ -16,13 +17,26 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: red;
+	background: #028090;
 	width: 50vw;
 	height: 100vh;
+	font-size: 1.5vw;
+	box-shadow: -10px 0 20px rgba(0,0,0,0.80);
+    clip-path: inset(0px -15px 0px 0px);
+	z-index: 2;
 }
 
 #upload {
 	height: 5vh;
+	margin: 3%;
+	background: #00a896;
+	border-style: none;
+	border-radius: 3px;
+	color: #f0f3bd;
+}
+
+#upload:hover {
+	background: #05668d;
 }
 
 #dropzone {
@@ -33,7 +47,8 @@ body {
 }
 
 #dropper {
-	background: orange;
+	background: #00a896;
+	color: #f0f3bd;
 	display: flex;
 	width: 45vw;
 	height: 70vh;
@@ -46,11 +61,12 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: purple;
+	background: #05668d;
 	width: 50vw;
 	height: 100vh;
-	color: white;
-	padding: 20px;
+	font-size: 2vw;
+	color: #f0f3bd;
+	padding: 30px;
 	overflow: scroll;
 }
 
@@ -72,9 +88,86 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-size: 4vw;
-	font-family: Inconsolata;
-	color: white;
+	color: #f0f3bd;
 	width: 100vw;
 	height: 10vh;
-	background: green;
+	background: #00a896;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+html {
+	width: 100vw;
+	height: 100vh;
+	font-family: 'Source Code Pro', monospace;
+	overflow: hidden;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+}
+#page {
+	display: flex;
+	flex-direction: column-reverse;
+	width: 100vw;
+	height: 100vh;
+}
+#heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 4vw;
+	color: #f0f3bd;
+	width: 100vw;
+	height: 10vh;
+	background: #00a896;
+}
+#fileUploader {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #028090;
+	width: 100vw;
+	height: 45vh;
+	font-size: 1.5vw;
+	box-shadow: -10px 5px 20px rgba(0,0,0,0.80);
+    clip-path: inset(-15px 0px 0px 0px);
+	z-index: 2;
+}
+#dropper {
+	background: #00a896;
+	color: #f0f3bd;
+	display: flex;
+	width: 55vw;
+	height: 15vh;
+	justify-content: center;
+	align-items: center;
+	border-radius: 7px;
+}
+#upload {
+	height: 3vh;
+	margin: 3%;
+	background: #00a896;
+	border-style: none;
+	border-radius: 3px;
+	color: #f0f3bd;
+}
+#exifViewer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #05668d;
+	width: 100vw;
+	height: 60vh;
+	padding: 30px;
+	font-size: 2vw;
+	color: #f0f3bd;
+	overflow: scroll;
+}
 }
