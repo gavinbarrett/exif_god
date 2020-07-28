@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { ExifViewer } from "./ExifViewer";
 import { FileUploader } from "./FileUploader";
 
-function App() {
+function Exif_God() {
 	const [jsonData, updateJsonData] = useState(null);
-	return (<div id='app'>
-		<div id='heading'>
-			{'Exif God'}
-		</div>
-		<div id='page'>
+	const [array, updateArray] = useState([]);
+	let arr = [];
+	useEffect(() => {
+		if (!jsonData)
+			return;
+		arr = [];
+		for (let i in jsonData)
+			arr.push(jsonData[i]);
+		updateArray(arr);
+	}, [jsonData]);
+
+	return (<div id='page'>
 			<FileUploader updateJsonData={updateJsonData}/>
-			<ExifViewer jsonData={jsonData}/>
-		</div>
-	</div>);
+			<ExifViewer array={array} updateArray={updateArray} jsonData={jsonData} updateJsonData={updateJsonData}/>
+		</div>);
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Exif_God/>, document.getElementById('root'));

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 
+function Heading() {
+	return (<div id='heading'>
+			{'Exif God'}
+		</div>);
+}
+
 function FileUploader(props) {
     // create a hook for the file path
     const [path, updatePath] = useState('');
@@ -26,7 +32,9 @@ function FileUploader(props) {
         await updatePath(file[0]);
     }
 
-    return (<div id='fileUploader'>
+    return (<div>
+	<Heading/>
+	<div id='fileUploader'>
         <Dropzone id='dropzone' accept='image/*' onDrop={file => updateFile(file)}>
             {({getRootProps, getInputProps, isDragActive, isDragReject, acceptedFiles}) => (
                 <div id="dropper" {...getRootProps()}>
@@ -39,7 +47,8 @@ function FileUploader(props) {
             )}
         </Dropzone>
         <button id='upload' type='submit' onClick={() => uploadFile()}>Upload</button>
-    </div>);
+    </div>
+	</div>);
 }
 
 export {
