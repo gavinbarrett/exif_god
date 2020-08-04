@@ -12,7 +12,7 @@ function ExifEntries({array, jsonData}) {
     
 	useEffect(() => {
 		const exif = document.getElementById('exifarray');
-		exif.scrollTop = 1000;
+		exif.scrollTop = 0;
 	}, [array, exifArray]);
 
 	for (let [key, value] of Object.entries(jsonData)) {

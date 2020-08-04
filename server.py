@@ -38,6 +38,7 @@ def update():
 	# open the image
 	# load the exif from the image
 	im = Image.open(BytesIO(r.read()))
+	'''
 	exif = exifread.process_file(r)
 	e = json.loads(f)
 	newarr = defaultdict(lambda: None)
@@ -48,7 +49,8 @@ def update():
 			print(e[c])
 			newarr[c] = e[c]
 	Ex_dif = {'Exif': newarr}
-
+	'''
+	Ex_dif = {}
 	# turn the exif dictionary into the appropriate bytes
 	exif_bytes = piexif.dump(Ex_dif)
 	# create a new bytesio to store the image
