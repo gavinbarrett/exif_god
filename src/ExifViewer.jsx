@@ -1,20 +1,21 @@
 import React, {useEffect} from 'react';
-import { Repl } from './Repl.jsx';
+import Repl from './Repl.jsx';
 
-function ExifEntry(props) {
-    return(<p id='entry'>{props.i}). {props.k}: {props.v}</p>);
+function ExifEntry({i, k, v}) {
+    return(<p id='entry'>{i}). {k}: {v}</p>);
 }
 
-function ExifEntries(props) {
+function ExifEntries({array, jsonData}) {
     let i = 0;
     let exifArray = [];
 	let arr = [];
     
 	useEffect(() => {
-		console.log('Rendering exif');
-	}, [props.array]);
+		const exif = document.getElementById('exifarray');
+		exif.scrollTop = 1000;
+	}, [array, exifArray]);
 
-	for (let [key, value] of Object.entries(props.jsonData)) {
+	for (let [key, value] of Object.entries(jsonData)) {
         // stringify any objects
         if (typeof(value) === 'object')
             value = JSON.stringify(value);
@@ -24,20 +25,16 @@ function ExifEntries(props) {
         i++;
 		arr.push(value);
     }
-	console.log('array');
-    console.log(props.array);
-	return (<div>{exifArray}</div>);
+	return (<div id='exifarray'>{exifArray}</div>);
 }
 
-function ExifViewer(props) {
+function ExifViewer({repl, path, array, updateArray, jsonData, updateJsonData}) {
     return (<div id='exifContainer'>
 	<div id='exifViewer'>
-        {props.jsonData ? <ExifEntries jsonData={props.jsonData} array={props.array} updateArray={props.updateArray}/> : <p>No exif data</p>}
+        {jsonData ? <ExifEntries jsonData={jsonData} array={array} updateArray={updateArray}/> : <p>No exif data</p>}
     </div>
-	<Repl array={props.array} jsonData={props.jsonData} updateJsonData={}/>
+        {repl ? <Repl array={array} jsonData={jsonData} updateJsonData={updateJsonData} path={path}/> : ''}
 	</div>);
 }
 
-export {
-    ExifViewer
-}
+export default ExifViewer;

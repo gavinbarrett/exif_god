@@ -29,4 +29,3 @@ def read_exif(img_data):
 	exif_data = image._getexif()
 	# decode the object to enable serialization
 	return decode(exif_data)
-

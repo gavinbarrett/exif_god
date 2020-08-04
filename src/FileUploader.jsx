@@ -7,9 +7,9 @@ function Heading() {
 		</div>);
 }
 
-function FileUploader(props) {
+function FileUploader({path, updatePath, updateJsonData, toggleRepl}) {
     // create a hook for the file path
-    const [path, updatePath] = useState('');
+    // const [path, updatePath] = useState('');
 
     const uploadFile = async () => {
         // add the selected file to a form
@@ -24,7 +24,11 @@ function FileUploader(props) {
          //   alert('nooo');
         //FIXME: if the response is not {error: no file was sent}, display to the user
         // add JSON data to the ExifViewer
-        props.updateJsonData(exif_data);
+        let b = null
+		if (JSON.stringify(exif_data) !== '{}')
+			b = exif_data
+		updateJsonData(exif_data);
+        toggleRepl(true);
     }
 
     const updateFile = async file => {
@@ -32,7 +36,7 @@ function FileUploader(props) {
         await updatePath(file[0]);
     }
 
-    return (<div>
+    return (<div id='uploader'>
 	<Heading/>
 	<div id='fileUploader'>
         <Dropzone id='dropzone' accept='image/*' onDrop={file => updateFile(file)}>
@@ -51,6 +55,4 @@ function FileUploader(props) {
 	</div>);
 }
 
-export {
-    FileUploader
-}
+export default FileUploader;

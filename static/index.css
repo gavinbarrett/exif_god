@@ -1,8 +1,11 @@
+* {
+	overflow-x: hidden;
+}
+
 html {
 	width: 100vw;
 	height: 100vh;
 	font-family: 'Source Code Pro', monospace;
-	overflow: hidden;
 }
 
 body {
@@ -32,11 +35,17 @@ body {
 	background: #00a896;
 	border-style: none;
 	border-radius: 3px;
+	box-sizing: border-box;
 	color: #f0f3bd;
 }
 
 #upload:hover {
 	background: #05668d;
+}
+
+#uploader {
+	width: 50vw;
+	height: 100vh;
 }
 
 #dropzone {
@@ -57,8 +66,16 @@ body {
 	border-radius: 7px;
 }
 
+#exifContainer {
+	display: flex;
+	flex-direction: column;
+	width: 50vw;
+	height: 100vh;
+}
+
 #exifViewer {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background: #05668d;
@@ -66,8 +83,14 @@ body {
 	height: 100vh;
 	font-size: 2vw;
 	color: #f0f3bd;
-	padding: 30px;
-	overflow: scroll;
+	overflow-y: scroll;
+}
+
+
+#exifarray {
+	height: 100vh;
+	width: 50vw;
+	margin-left: 10%;
 }
 
 #entry {
@@ -78,7 +101,7 @@ body {
 #page {
 	display: flex;
 	width: 100vw;
-	height: 90vh;
+	height: 100vh;
 	background: blue;
 }
 
@@ -89,9 +112,30 @@ body {
 	align-items: center;
 	font-size: 4vw;
 	color: #f0f3bd;
-	width: 100vw;
+	width: 50vw;
 	height: 10vh;
 	background: #00a896;
+}
+
+
+#repl {
+	color: #f0f3bd;
+	width: 50vw;
+	height: 20vh;
+	background: #00a896;
+}
+
+#r {
+	width: 100%;
+	height: 100%;
+	background: #00a896;
+}
+
+textarea {
+	font-family: 'Source Code Pro', monospace;
+	color: #f0f3bd;
+	resize: none;
+	outline: none;
 }
 
 @media only screen
