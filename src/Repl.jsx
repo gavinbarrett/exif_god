@@ -83,11 +83,11 @@ function Repl({array, path, jsonData}) {
             let i = parseInt(input);
             if (isNaN(i)) {
                 // entered string when a number should have been entered
-                if (input === 'UPDATE') {
+                //if (input === 'UPDATE') {
                     //FIXME: send props.jsonData to the server
-                    updateData();
-                } 
-				else if (input === 'HELP') {
+                //    updateData();
+                //} 
+				if (input === 'HELP') {
                     addChar('Enter REMOVE to remove metadata.\nEnter CLEAR to clear the shell.\n');
                 } else if (input === 'CLEAR') {
                     changeState('');
