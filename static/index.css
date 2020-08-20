@@ -22,7 +22,7 @@ body {
 	align-items: center;
 	background: #028090;
 	width: 50vw;
-	height: 100vh;
+	height: 90vh;
 	font-size: 1.5vw;
 	box-shadow: -10px 0 20px rgba(0,0,0,0.80);
     clip-path: inset(0px -15px 0px 0px);
@@ -41,6 +41,7 @@ body {
 
 #upload:hover {
 	background: #05668d;
+	cursor: pointer;
 }
 
 #uploader {
@@ -64,6 +65,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	border-radius: 7px;
+	cursor: pointer;
 }
 
 #exifContainer {
@@ -115,6 +117,7 @@ body {
 	width: 50vw;
 	height: 10vh;
 	background: #00a896;
+	overflow: hidden;
 }
 
 
@@ -170,6 +173,7 @@ body {
 	width: 100vw;
 	height: 10vh;
 	background: #00a896;
+	overflow: hidden;
 }
 #fileUploader {
 	display: flex;
@@ -193,6 +197,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	border-radius: 7px;
+	cursor: pointer;
 }
 #upload {
 	height: 3vh;
@@ -201,6 +206,7 @@ body {
 	border-style: none;
 	border-radius: 3px;
 	color: #f0f3bd;
+	cursor: pointer;
 }
 #exifViewer {
 	display: flex;
