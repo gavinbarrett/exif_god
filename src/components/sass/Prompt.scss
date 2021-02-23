@@ -1,0 +1,27 @@
+.prompt-container {
+	width: 80vw;
+	height: 90vh;
+	background-image: url('./assets/metadata.jpg');
+	background-color: #00A896;
+	background-size: cover;
+	background-blend-mode: screen;
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.prompt-line {
+	width: 60vw;
+	height: 20vh;
+	background: rgba(241, 250, 238, 0.85);
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #00A896;
+	font-size: 2vw;
+	font-family: 'Source Code Pro', monospace;
+	font-weight: bold;
+	padding: 2%;
+}

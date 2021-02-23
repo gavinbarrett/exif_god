@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+html, body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background: #00A896;
+	overflow-x: hidden;
+}
+
+.app {
+	width: 100vw;
+}
+
+.app-wrapper {
+	background: cyan;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.app-body {
+	width: 100vw;
+	//height: 90vh;
+	display: flex;
+	flex-direction: column-reverse;
+	@media only screen and (min-width: 530px) {
+		flex-direction: row;
+	}
+}

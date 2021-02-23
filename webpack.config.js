@@ -1,17 +1,31 @@
 module.exports = {
-	entry: './src/App.jsx',
+	entry: './src/App.tsx',
 	mode: 'development',
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.(js|ts|tsx)$/,
 				exclude: /node_modules/,
-				use: ['babel-loader'],
+				use: ['ts-loader'],
+			},
+			{
+				test: /\.(scss|css)$/,
+				exclude: /node_modules/,
+				use: ['style-loader', 'css-loader', 'sass-loader']
+			},
+			{
+				test: /\.(svg|jpg)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'url-loader',
+					}
+				]
 			}
 		]
 	},
 	resolve: {
-		extensions: ['*', '.js', '.jsx']
+		extensions: ['.js', '.ts', '.tsx']
 	},
 	output: {
 		filename: 'App.js',

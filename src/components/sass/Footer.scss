@@ -1,0 +1,28 @@
+footer {
+	width: 100vw;
+	height: 10vh;
+	background: #00A896;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.footer-box {
+	width: 15vw;
+	height: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding-left: 2vw;
+	font-family: 'Source Code Pro', monospace;
+	color: white;
+}
+
+.footer-text {
+	cursor: pointer;
+}
+
+.source-code {
+	color: white;
+	text-decoration: none;
+}

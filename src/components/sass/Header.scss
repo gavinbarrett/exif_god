@@ -1,0 +1,31 @@
+header {
+	width: 100vw;
+	height: 10vh;
+	background: #00A896;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header-text {
+	width: 20vw;
+	height: 10vh;
+	color: white;
+	font-size: 3vw;
+	font-family: 'Source Code Pro', monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: default;
+}
+
+.header-desc {
+	width: 20vw;
+	height: 10vh;
+	color: yellow;
+	font-size: 1vw;
+	font-family: 'Source Code Pro', monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

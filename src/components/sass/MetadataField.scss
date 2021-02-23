@@ -1,0 +1,43 @@
+.metadata-wrapper {
+	width: 75vw;
+	height: 10vh;
+	background: #00A896;
+	font-size: 1.5vw;
+	color: #F1FAEE;
+	border-radius: 20px;
+	display: flex;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	align-items: center;
+	font-family: 'Source Code Pro', monospace;
+}
+
+.data-idx {
+	width: 8vw;
+	height: 9vh;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: yellow;
+}
+
+.data-type {
+	width: 20vw;
+	height: 6vh;
+	background-color: #F1FAEE;
+	border-radius: 20px;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1%;
+}
+
+.data-value {
+	width: 50vw;
+	height: 9vh;
+	display: flex;
+	align-items: center;
+	padding-left: 2%;
+}

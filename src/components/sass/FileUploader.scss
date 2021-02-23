@@ -1,0 +1,126 @@
+.file-uploader {
+	width: 100vw;
+	height: 40vh;
+	background: #f1faee;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	@media only screen and (min-width: 530px) {
+		width: 20vw;
+		height: 90vh;
+		flex-direction: column;
+	}
+}
+
+.exif-display {
+	width: 100vw;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@media only screen and (min-width: 530px) {
+		width: 80vw;
+		height: 90vh;
+	}
+}
+
+.exif-entry {
+	width: 80vw;
+	height: 8vh;
+	display: flex;
+	align-items: center;
+	background: cyan;
+	padding-left: 5%;
+}
+
+.upload-box {
+	width: 20vw;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.metadata-box {
+	width: 20vw;
+	height: 20vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.delete-metadata {
+	width: 10vw;
+	height: 5vw;
+	background: #00A896;
+	border-radius: 30px;
+	transition: all 0.5s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #F0F3BD;
+	cursor: pointer;
+	font-family: 'Source Code Pro', monospace;
+}
+
+.delete-metadata:hover {
+	background-color: #05668d;
+}
+
+.delete-metadata:focus {
+	outline: none;
+}
+
+.dropper {
+	background-image: url('./assets/upload00A896.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #f0f3bd;
+	display: flex;
+	width: 14vw;
+	height: 30vh;
+	justify-content: center;
+	align-items: flex-end;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.dropper:focus {
+	outline: none;
+}
+
+.box-item {
+	width: 8vw;
+	height: 16vh;
+	background: rgba(5, 102, 141, 0.8);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Source Code Pro', monospace;
+	border-radius: 25px;
+	padding: 4%;
+}
+
+.upload {
+	width: 10vw;
+	height: 8vh;
+	margin: 3%;
+	background: #00a896;
+	border-style: none;
+	border-radius: 30px;
+	color: #f0f3bd;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+.upload:hover {
+	background: #05668d;
+	cursor: pointer;
+}
+
+.upload:focus {
+	outline: none;
+}
