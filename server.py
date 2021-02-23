@@ -6,8 +6,6 @@ from io import BytesIO
 from decimal import Decimal
 from base64 import b64encode
 from collections import defaultdict
-from modules.exif import read_exif
-from modules.dicts import exif_tags
 from modules.keys import get_exif_key
 from flask import Flask, jsonify, request, render_template
 
@@ -18,7 +16,9 @@ def upload():
 	if 'file' not in request.files:
 		return jsonify({'error':'no file was found'})
 	# retrieve the file
+	print(request.files['file'])
 	f = request.files['file']
+	print(f'File: {f}')
 	# read and decode the exif data
 	#data = read_exif(f)
 	data = exifread.process_file(f)
@@ -28,19 +28,23 @@ def upload():
 
 @app.route('/update', methods=['POST'])
 def update():
-	if 'data' not in request.form:
-		return jsonify({'error':'no exif data was found'})
+	#if 'data' not in request.form:
+	#	return jsonify({'error':'no exif data was found'})
+	print('Updating photo.')
 	if 'file' not in request.files:
 		return jsonify({'error':'no file was found'})
 	r = request.files['file']
+	print('Grabbed photo.')
 	# retrieve the file
-	f = request.form['data']
+	#f = request.form['data']
 	# open the image
 	# load the exif from the image
+	print('Opening file')
 	im = Image.open(BytesIO(r.read()))
-	'''
 	exif = exifread.process_file(r)
-	e = json.loads(f)
+	#e = json.loads(exif)
+	#print(e)
+	'''
 	newarr = defaultdict(lambda: None)
 	for c in e:
 		if (c[0:4] == 'EXIF'):
