@@ -16,11 +16,8 @@ def upload():
 	if 'file' not in request.files:
 		return jsonify({'error':'no file was found'})
 	# retrieve the file
-	print(request.files['file'])
 	f = request.files['file']
-	print(f'File: {f}')
 	# read and decode the exif data
-	#data = read_exif(f)
 	data = exifread.process_file(f)
 	exif_data = {k:v.printable for k,v in data.items() if not isinstance(v, bytes)}
 	# return the serialized exif object
@@ -28,45 +25,22 @@ def upload():
 
 @app.route('/update', methods=['POST'])
 def update():
-	#if 'data' not in request.form:
-	#	return jsonify({'error':'no exif data was found'})
-	print('Updating photo.')
 	if 'file' not in request.files:
 		return jsonify({'error':'no file was found'})
 	r = request.files['file']
-	print('Grabbed photo.')
-	# retrieve the file
-	#f = request.form['data']
-	# open the image
-	# load the exif from the image
-	print('Opening file')
 	im = Image.open(BytesIO(r.read()))
 	exif = exifread.process_file(r)
-	#e = json.loads(exif)
-	#print(e)
-	'''
-	newarr = defaultdict(lambda: None)
-	for c in e:
-		if (c[0:4] == 'EXIF'):
-			exif[c] = e[c]
-			print(c)
-			print(e[c])
-			newarr[c] = e[c]
-	Ex_dif = {'Exif': newarr}
-	'''
 	Ex_dif = {}
 	# turn the exif dictionary into the appropriate bytes
 	exif_bytes = piexif.dump(Ex_dif)
 	# create a new bytesio to store the image
 	new_image = BytesIO()
-	# 
 	im.save(new_image, 'jpeg', exif=exif_bytes)
 	# get the bytes
 	bys = new_image.getvalue()
 	serialized = b64encode(bys).decode('utf-8')	
 	serialized = f'data:image/jpeg;base64,{str(serialized)}'
 	return jsonify({'exif_free':serialized})
-
 
 @app.route('/', methods=['GET'])
 def render():

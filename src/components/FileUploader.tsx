@@ -4,7 +4,7 @@ import { Prompt } from './Prompt';
 import { MetadataField } from './MetadataField';
 import './sass/FileUploader.scss';
 
-const FileDisplay = ({exif, updateExif}) => {
+const FileDisplay = ({exif, updateExif, updateLoading}) => {
 	const [path, updatePath] = React.useState('');
 
 	const uploadFile = async () => {
@@ -15,7 +15,8 @@ const FileDisplay = ({exif, updateExif}) => {
 		formData.append('file', path);
         // retrieve the response from the server
         const resp = await fetch('/upload', { method: 'POST', body: formData });
-        // extract the exif metadata
+        updateLoading(true);
+		// extract the exif metadata
         const exif_data = await resp.json();
         console.log(exif_data);
         if (JSON.stringify(exif_data) === '{ error: "no file was found" }') {
@@ -83,21 +84,19 @@ const FileDisplay = ({exif, updateExif}) => {
 	</div>);
 }
 
-/*
-*/
-
-const ExifDisplay = ({exif}) => {
+const ExifDisplay = ({exif, loading}) => {
 	return (<div className="exif-display">
 		{Object.keys(exif).length ? Object.entries(exif).map((data, index) => {
 			return <MetadataField key={index} idx={index} type={data[0]} value={data[1]}/>
-		}) : <Prompt/>}
+		}) : <Prompt loading={loading}/>}
 	</div>);
 }
 
 export const FileUploader = () => {
 	const [exif, updateExif] = React.useState([]);
+	const [loading, updateLoading] = React.useState(false);
 	return (<div className="app-body">
-		<FileDisplay exif={exif} updateExif={updateExif}/>
-		<ExifDisplay exif={exif}/>
+		<FileDisplay exif={exif} updateExif={updateExif} updateLoading={updateLoading}/>
+		<ExifDisplay exif={exif} loading={loading}/>
 	</div>);
 }

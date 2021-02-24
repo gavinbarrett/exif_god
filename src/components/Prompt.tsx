@@ -1,8 +1,12 @@
 import * as React from 'react';
 import './sass/Prompt.scss';
 
-export const Prompt = () => {
+type prompt = {
+	loading: boolean;
+};
+
+export const Prompt = ({loading}:prompt) => {
 	return (<div className="prompt-container">
-		<p className="prompt-line">{"Upload an image file to analyze it's EXIF metadata and feel free to wipe it all."}</p>
+			{loading ? <p className="prompt-line">{"Uploading file"}</p> : <p className="prompt-line">{"Upload an image file to analyze it's EXIF metadata and feel free to wipe it all."}</p>}
 	</div>);
 }
