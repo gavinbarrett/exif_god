@@ -4,32 +4,27 @@ import { Prompt } from './Prompt';
 import { MetadataField } from './MetadataField';
 import './sass/FileUploader.scss';
 
-const FileDisplay = ({exif, updateExif, updateLoading}) => {
+const FileDisplay = ({exif, updateExif, updateLoading, updateUploadStatus}) => {
 	const [path, updatePath] = React.useState('');
-
 	const uploadFile = async () => {
-        console.log('uploading');
 		// add the selected file to a form
         let formData = new FormData();
-        console.log(`Adding path: ${path}`);
 		formData.append('file', path);
         // retrieve the response from the server
         const resp = await fetch('/upload', { method: 'POST', body: formData });
         updateLoading(true);
 		// extract the exif metadata
         const exif_data = await resp.json();
-        console.log(exif_data);
-        if (JSON.stringify(exif_data) === '{ error: "no file was found" }') {
-			console.log('Error thrown');
+        if (JSON.stringify(exif_data) === '{ error: "no file was found" }' || JSON.stringify(exif_data) === "{}") {
+			updateUploadStatus("No metadata found.");
 			return;
 		}
-		await updateExif(exif_data);
+		updateExif(exif_data);
     }
 
-    const updateFile = async file => {
+    const updateFile = file => {
         // update the file path
-        console.log(file);
-		await updatePath(file[0]);
+		updatePath(file[0]);
     }
 
 	const deleteMetadata = async () => {
@@ -39,7 +34,6 @@ const FileDisplay = ({exif, updateExif, updateLoading}) => {
         const resp = await fetch('/update', { method: 'POST', body: formData });
 		const r = await resp.json();
 		if (r && r['exif_free']) {
-			console.log(`r: ${r['exif_free']}`);
 			let link = document.createElement('a');
 			let reader = new FileReader();
 			const f = new Blob([r['exif_free']], {"type": "image"});
@@ -84,19 +78,20 @@ const FileDisplay = ({exif, updateExif, updateLoading}) => {
 	</div>);
 }
 
-const ExifDisplay = ({exif, loading}) => {
+const ExifDisplay = ({exif, loading, uploadStatus}) => {
 	return (<div className="exif-display">
 		{Object.keys(exif).length ? Object.entries(exif).map((data, index) => {
 			return <MetadataField key={index} idx={index} type={data[0]} value={data[1]}/>
-		}) : <Prompt loading={loading}/>}
+		}) : <Prompt loading={loading} uploadStatus={uploadStatus}/>}
 	</div>);
 }
 
 export const FileUploader = () => {
 	const [exif, updateExif] = React.useState([]);
 	const [loading, updateLoading] = React.useState(false);
+	const [uploadStatus, updateUploadStatus] = React.useState("Uploading file...");
 	return (<div className="app-body">
-		<FileDisplay exif={exif} updateExif={updateExif} updateLoading={updateLoading}/>
-		<ExifDisplay exif={exif} loading={loading}/>
+		<FileDisplay exif={exif} updateExif={updateExif} updateLoading={updateLoading} updateUploadStatus={updateUploadStatus}/>
+		<ExifDisplay exif={exif} loading={loading} uploadStatus={uploadStatus}/>
 	</div>);
 }

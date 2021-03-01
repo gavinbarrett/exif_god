@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 
-function Heading() {
+const Heading = () => {
 	return (<div id='heading'>
 			{'Exif God'}
 		</div>);
 }
 
-function FileUploader({path, updatePath, updateJsonData, toggleRepl}) {
+export const FileUploader = ({path, updatePath, updateJsonData, toggleRepl}) => {
     // create a hook for the file path
     // const [path, updatePath] = useState('');
 
@@ -20,13 +20,8 @@ function FileUploader({path, updatePath, updateJsonData, toggleRepl}) {
         // extract the exif metadata
         const exif_data = await resp.json();
         console.log(exif_data);
-        //if (JSON.stringify(exif_data) === '{ error: "no file was found" }')
-         //   alert('nooo');
-        //FIXME: if the response is not {error: no file was sent}, display to the user
-        // add JSON data to the ExifViewer
-        let b = null
 		if (JSON.stringify(exif_data) !== '{}')
-			b = exif_data
+			
 		updateJsonData(exif_data);
         toggleRepl(true);
     }
@@ -54,5 +49,3 @@ function FileUploader({path, updatePath, updateJsonData, toggleRepl}) {
     </div>
 	</div>);
 }
-
-export default FileUploader;
